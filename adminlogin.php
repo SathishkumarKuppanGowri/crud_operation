@@ -18,7 +18,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
       <li class="nav-item ">
-          <a class="nav-link " aria-current="page" href="1.index.php">Home</a>
+          <a class="nav-link " aria-current="page" href="index.php">Home</a>
         </li>
         <li class="nav-item nav-pills">
           <a class="nav-link active text-light" aria-current="page" href="#">Admin LogIn</a>

@@ -23,7 +23,7 @@
   <form calss="card" action="usersignup.php" method="POST">
     <div class="mb-3 mt-3">
       <label for="name">Name:</label>
-      <input name="name" type="name" class="form-control" id="name" placeholder="Enter name" onkeyup="nameValidat(this)">
+      <input name="name" type="name" class="form-control" id="name" placeholder="Enter name" onkeyup="nameValid(this)">
       <div  id="name_error"  class="text-danger"></div>
     </div>
     <div class="mb-3">
@@ -47,12 +47,12 @@
     </div>
     <div class="mb-3">
       <label for="pin">Pincode:</label>
-      <input name="pin" type="text" class="form-control" id="pin" placeholder="Enter pincode" maxlength="10" >
+      <input name="pin" type="text" class="form-control" id="pin" placeholder="Enter pincode" maxlength="10" onkeyup=" pinValidat(this)">
       <div  id="pin_error" class="text-danger"></div>
     </div>
 
     <p> If you  hava account pleace <a href="userlogin.php">SigIn</a></p>
-    <div><p><?php echo $error;?></p></div>
+    <div><p class="text-danger"><?php echo $error;?></p></div>
     <button name="submit" type="submit" class="btn btn-primary">Submit</button>
 
     <?php 
@@ -84,7 +84,7 @@ function sendVerificationEmail($email, $verificationCode) {
       // Content
       $mail->isHTML(true);                                        // Set email format to HTML
       $mail->Subject = 'Email Verification';
-      $mail->Body    = 'Please click the following link to verify your email: <a href="http://localhost/task/verification.php?verify_token='.$verificationCode.'">Verify Email</a>';
+      $mail->Body    = 'Please click the following link to verify your email: <a href="http://localhost/task/crud_operation/verification.php?verify_token='.$verificationCode.'">Verify Email</a>';
 
       $mail->send();
       echo "<sript>window.alert('Verification email has been sent')</script>";
@@ -179,40 +179,7 @@ if(isset($_POST['submit'])){
   </form>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-  <script >
-    function nameValidat(inputElement) {
-      
-    var nameInput = inputElement.value.trim();
-    var pattern= /^[a-zA-Z\s]+$/;
-if(pattern.test(nameInput)){
-    document.getElementById('name_error').innerHTML =  ""  ;
-}else{
-    document.getElementById('name_error').innerHTML = "Name - alphabet & space only"  ;
-}
-   
-}
-
-function emailValidat(inputElement){
-    var emailInput= inputElement.value.trim()
-    var pattern=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if(pattern.test(emailInput)){
-        document.getElementById('email_error').innerHTML =  ""  ;
-    }else{
-        document.getElementById('email_error').innerHTML = "Enter valid email address"  ;
-    }
-}
-
-function phoneValidat(this){
-var phoneInput=inputElement.value;
-var pattern=/^\d{10}$/;
-if(pattern.test(phoneInput)){
-    document.getElementById('phone_error').innerHTML =  ""  ;
-}else{
-    document.getElementById('phone_error').innerHTML = "Only digits allowed"  ;
-}
-}
-
-  </script>
+<script src="validation.js"></script>
 </div>
 </body>
 </html>

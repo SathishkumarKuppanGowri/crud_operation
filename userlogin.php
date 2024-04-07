@@ -21,7 +21,7 @@ session_start();
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
       <li class="nav-item ">
-          <a class="nav-link " aria-current="page" href="1.index.php">Home</a>
+          <a class="nav-link " aria-current="page" href="index.php">Home</a>
         </li>
         <li class="nav-item nav-pills">
           <a class="nav-link active text-light" aria-current="page" href="#">User LogIn</a>
@@ -43,7 +43,8 @@ session_start();
   <form calss="card" action="userlogin.php" method="POST">
     <div class="mb-3 mt-3">
       <label for="name">Email:</label>
-      <input name="email" type="email" class="form-control" id="name" placeholder="Enter email" >
+      <input name="email" type="email" class="form-control" id="name" placeholder="Enter email" onkeyup="emailValidat(this)" >
+      <div  id="email_error" class="text-danger"></div>
     </div>
     <div class="mb-3">
       <label for="pwd">Password:</label>
@@ -51,7 +52,7 @@ session_start();
     </div>
     <p> If you dont't hava account pleace <a href="usersignUp.php">SignUP</a></p>
     <div>
-      <p><?php echo $error;?></p>
+      <p class="text-danger"><?php echo $error;?></p>
     </div>
     <button name="submit" type="submit" class="btn btn-primary">Submit</button>
     <?php 
@@ -91,6 +92,6 @@ session_start();
 
   </form>
 </div>
-    
+<script src="validation.js"></script>   
 </body>
 </html>

@@ -177,5 +177,6 @@ if (isset($_GET['search'])) {
 
 
 </div>
+<script src="validation.js"></script>  
 </body>
 </html>

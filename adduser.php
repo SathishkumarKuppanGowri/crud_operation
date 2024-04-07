@@ -50,7 +50,8 @@
   <form calss="card" action="adduser.php" method="POST">
     <div class="mb-3 mt-3">
       <label for="name">Name:</label>
-      <input name="name" type="name" class="form-control" id="name" placeholder="Enter name" >
+      <input name="name" type="name" class="form-control" id="name" placeholder="Enter name" onkeyup="nameValid(this)">
+      <div  id="name_error"  class="text-danger"></div>
     </div>
     <div class="mb-3">
       <label for="pwd">Password:</label>
@@ -58,11 +59,13 @@
     </div>
     <div class="mb-3 mt-3">
       <label for="email">Email:</label>
-      <input name="email" type="email" class="form-control" id="email" placeholder="Enter name" >
+      <input name="email" type="email" class="form-control" id="email" placeholder="Enter name" onkeyup="emailValidat(this)">
+      <div  id="email_error" class="text-danger"></div>
     </div>
     <div class="mb-3">
       <label for="phone">Phone Number:</label>
-      <input name="phone" type="text" class="form-control" id="phone" maxlength="10" placeholder="Enter phone Number" >
+      <input name="phone" type="text" class="form-control" id="phone" maxlength="10" placeholder="Enter phone Number" onkeyup="phoneValidat(this)">
+      <div  id="phone_error" class="text-danger"></div>
     </div>
     <div class="mb-3 mt-3">
       <label for="address">Address:</label>
@@ -70,11 +73,12 @@
     </div>
     <div class="mb-3">
       <label for="pin">Pincode:</label>
-      <input name="pin" type="text" class="form-control" id="pin" placeholder="Enter pincode" >
+      <input name="pin" type="text" class="form-control" id="pin" placeholder="Enter pincode"  onkeyup=" pinValidat(this)">
+      <div  id="pin_error" class="text-danger"></div>
     </div>
 
 
-    <div><p><?php echo $error;?></p></div>
+    <div><p class="text-danger"><?php echo $error;?></p></div>
     <button name="submit" type="submit" class="btn btn-primary">Submit</button>
 
     <?php 
@@ -133,5 +137,6 @@ $status=1;
 ?>
   </form>
 </div>
+<script src="validation.js"></script>
 </body>
 </html>
